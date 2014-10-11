@@ -12,13 +12,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends BlackLotusBaseActivity {
 
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		getLayoutInflater().inflate(R.layout.activity_main, baseRoot);
 	}
 
 	@Override
@@ -39,7 +45,6 @@ public class MainActivity extends BlackLotusBaseActivity {
 	public void getARandom(View view) {
 		
 		String url = "http://api.mtgdb.info/cards/random";
-		url = "https://api.deckbrew.com/mtg/cards/?multiverseid=178023";
 		JsonObjectRequest getCardAsJson = new JsonObjectRequest
 				(JsonObjectRequest.Method.GET, url, null,
 					new Response.Listener<JSONObject>() {
