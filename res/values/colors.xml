@@ -2,4 +2,6 @@
 <resources>
     <color name="blocker_overlay">#77000000</color>
     
+    <color name="blocker_tap_background">#ff1a83bd</color>
+    
 </resources>

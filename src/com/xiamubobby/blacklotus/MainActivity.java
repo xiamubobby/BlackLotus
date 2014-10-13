@@ -1,14 +1,20 @@
 package com.xiamubobby.blacklotus;
 
 
+import info.mtgdb.api.Card;
+
 import org.json.JSONObject;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +25,6 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends BlackLotusBaseActivity {
 
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,13 +54,29 @@ public class MainActivity extends BlackLotusBaseActivity {
 					new Response.Listener<JSONObject>() {
 			    		@Override
 		    			public void onResponse(JSONObject response) {
-			    			untap();
+			    			Card card = new Card(new info.mtgdb.json.JSONObject(response.toString()));
+			    			int mId = card.getId();
+			    			ImageRequest getCardImage = new ImageRequest(
+			    					"http://mtgimage.com/multiverseid/"+mId+".crop.hq.jpg",
+			    					new Response.Listener<Bitmap>() {
+										@Override
+										public void onResponse(Bitmap imgRes) {
+											Log.v("imgFin",imgRes.toString());
+											untap();
+										}
+			    					}, 3000, 3000, Config.ARGB_8888, new Response.ErrorListener(){
+										@Override
+										public void onErrorResponse(VolleyError arg0) {											
+										}
+			    					});
+			    			queue.add(getCardImage);
+			    			//untap();
 		    			}
 					},
 					new Response.ErrorListener() {
 						@Override
 						public void onErrorResponse(VolleyError arg0) {
-							untap();
+							//untap();
 						}
 					});
 		
