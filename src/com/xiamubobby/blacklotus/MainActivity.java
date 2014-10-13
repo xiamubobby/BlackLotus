@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -29,6 +30,7 @@ public class MainActivity extends BlackLotusBaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getLayoutInflater().inflate(R.layout.activity_main, baseRoot);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 	}
 
 	@Override
@@ -62,7 +64,7 @@ public class MainActivity extends BlackLotusBaseActivity {
 										@Override
 										public void onResponse(Bitmap imgRes) {
 											Log.v("imgFin",imgRes.toString());
-											untap();
+											//untap();
 										}
 			    					}, 3000, 3000, Config.ARGB_8888, new Response.ErrorListener(){
 										@Override

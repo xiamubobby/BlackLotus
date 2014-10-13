@@ -117,13 +117,12 @@ public class BlackLotusBaseActivity extends Activity {
 			switch (mType) {
 				case TYPE_TAP:
 					mTitleView.setText("Internet Claustrophobia");
-					mScan = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.dialogtap);
-					//LinearLayout.LayoutParams relaParams = new LinearLayout.LayoutParams(mScan.getWidth(), mScan.getHeight(), 6);
-					//mScanView.setLayoutParams(relaParams);
+					mScan = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.blockertapscan);
 					mScanView.setImageBitmap(mScan);
 					mTypeView.setText("Enchantment - Aura");
 					mTextView.setText("Enchanted plainwalker doesn't untap until the data is loaded.");
 					mFlavorView.setText("Oh! You're now very tapped!");
+					getWindow().setBackgroundDrawableResource(R.drawable.blockertapbackground);
 					break;
 				default:
 					if (mScan != null) {
@@ -134,7 +133,7 @@ public class BlackLotusBaseActivity extends Activity {
 					}
 					mTextView.setText(mText);
 			}
-			getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blocker_tap_background)));
+			//getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blocker_tap_background)));
 			setContentView(blockRoot);
 			getWindow().setLayout((int) (baseRoot.getWidth() * 0.6), (int) (baseRoot.getHeight() * 0.6));
 		}
