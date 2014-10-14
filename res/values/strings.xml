@@ -5,5 +5,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="yingyingying">yinyinyin</string>
+    
+    <string name="blocker_tap_title">Internet Claustrophobia</string>
+    <string name="blocker_tap_type">Enchantment - Aura</string>
+    <string name="blocker_tap_text">Enchanted plainwalker doesn\'t untap until the data is loaded.</string>
+    <string name="blocker_tap_flavor">Oh! You\'re now very tapped!</string>
 
 </resources>

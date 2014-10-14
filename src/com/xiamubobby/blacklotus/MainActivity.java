@@ -64,7 +64,7 @@ public class MainActivity extends BlackLotusBaseActivity {
 										@Override
 										public void onResponse(Bitmap imgRes) {
 											Log.v("imgFin",imgRes.toString());
-											//untap();
+											untap();
 										}
 			    					}, 3000, 3000, Config.ARGB_8888, new Response.ErrorListener(){
 										@Override

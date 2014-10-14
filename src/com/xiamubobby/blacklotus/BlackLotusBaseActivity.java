@@ -73,69 +73,26 @@ public class BlackLotusBaseActivity extends Activity {
 	public void untapAnimate() { }
 	
 	protected class Blocker extends Dialog {
-		int mType;
-		Bitmap mScan;
-		int mScanRes;
-		String mText;
+		//int mType;
 		RelativeLayout blockRoot;
-		TextView mTitleView;
-		ImageView mScanView;
-		TextView mTextView;
-		TextView mTypeView;
-		TextView mFlavorView;
 		public final static int TYPE_TAP = 1;
-		Blocker(Context context, Bitmap scan, String text) {
-			super(context);
-			mScan = scan;
-			mText = text;
-			init();
-		}
-		Blocker(Context context, int scanRes, String text) {
-			super(context);
-			mScanRes = scanRes;
-			mText = text;
-			init();
-		}
 		Blocker(Context context, int type) {
 			super(context);
-			mType = type;
-			init();
+			//mType = type;
+			init(type);
 		}
 		
-		void init() {
+		void init(int type) {
 			setCancelable(false);
-			requestWindowFeature(Window.FEATURE_NO_TITLE);
-			
-			blockRoot = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.base_blocker, null);
-			mTitleView = (TextView) blockRoot.findViewById(R.id.blocker_title);
-			mTitleView.setTypeface(null, Typeface.BOLD);
-			mScanView = (ImageView) blockRoot.findViewById(R.id.blocker_scan);
-			mTextView = (TextView) blockRoot.findViewById(R.id.blocker_text);
-			mTypeView = (TextView) blockRoot.findViewById(R.id.blocker_type);
-			mFlavorView = (TextView) blockRoot.findViewById(R.id.blocker_flavor);
-			mFlavorView.setTypeface(null, Typeface.ITALIC);
-			switch (mType) {
+			requestWindowFeature(Window.FEATURE_NO_TITLE);		
+			switch (type) {
 				case TYPE_TAP:
-					mTitleView.setText("Internet Claustrophobia");
-					mScan = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.blockertapscan);
-					mScanView.setImageBitmap(mScan);
-					mTypeView.setText("Enchantment - Aura");
-					mTextView.setText("Enchanted plainwalker doesn't untap until the data is loaded.");
-					mFlavorView.setText("Oh! You're now very tapped!");
-					getWindow().setBackgroundDrawableResource(R.drawable.blockertapbackground);
+					setContentView(R.layout.blocker_tap);
 					break;
 				default:
-					if (mScan != null) {
-						mScanView.setImageBitmap(mScan);
-					}
-					else {
-						mScanView.setImageResource(mScanRes);
-					}
-					mTextView.setText(mText);
+					break;
 			}
-			//getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blocker_tap_background)));
-			setContentView(blockRoot);
-			getWindow().setLayout((int) (baseRoot.getWidth() * 0.6), (int) (baseRoot.getHeight() * 0.6));
+			//blockRoot = (RelativeLayout) findViewById(R.id.blocker_root);
 		}
 	}
 
