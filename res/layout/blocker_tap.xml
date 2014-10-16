@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/blocker_width"
-    android:layout_height="@dimen/blocker_height"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
     android:padding="@dimen/blocker_inset"
     android:id="@+id/blocker_root"
     android:background="@drawable/blocker_tap_background" >"
     
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+    	android:layout_height="match_parent"
         android:orientation="vertical" >
         
 		<TextView
@@ -16,10 +17,11 @@
 		    android:layout_height="0px"
 		    android:layout_width="match_parent"
 		    android:layout_weight="1"
-		    android:layout_marginLeft="@dimen/blocker_inset"
+		    android:layout_gravity="center"
 		    android:gravity="center_vertical"
 		    android:text="@string/blocker_tap_title"
-		    android:textStyle="bold" />
+		    android:textStyle="bold"
+		    android:textSize="25sp" />
 		<ImageView 
 		    android:id="@+id/blocker_scan"
 		    android:layout_height="0px"
@@ -33,7 +35,9 @@
 		    android:layout_width="match_parent"
 		    android:layout_marginLeft="@dimen/blocker_inset"
 		    android:layout_weight="1"
-		    android:text="@string/blocker_tap_type" />
+		    android:gravity="center_vertical"
+		    android:text="@string/blocker_tap_type"
+		    android:textSize="25sp" />
 		<TextView
 		    android:id="@+id/blocker_text"
 		    android:layout_height="0px"
@@ -42,15 +46,18 @@
 		    android:gravity="center"
 		    android:layout_marginLeft="@dimen/blocker_inset"
 		    android:layout_marginRight="@dimen/blocker_inset"
-		    android:text="@string/blocker_tap_text" />
+		    android:text="@string/blocker_tap_text"
+		    android:textSize="25sp" />
 		<TextView
 		    android:id="@+id/blocker_flavor"
 		    android:layout_height="0px"
 		    android:layout_width="match_parent"
 		    android:layout_weight="1"
 		    android:layout_marginLeft="@dimen/blocker_inset"
+		    android:gravity="center_vertical|right"
 		    android:text="@string/blocker_tap_flavor"
-		    android:textStyle="italic" />
+		    android:textStyle="italic"
+		    android:textSize="25sp" />
 		        
         
     </LinearLayout>

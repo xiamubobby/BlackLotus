@@ -4,4 +4,6 @@
     
     <color name="blocker_tap_background">#ff1a83bd</color>
     
+    <color name="bl_ac_bg_color">#ff343434</color>
+    
 </resources>

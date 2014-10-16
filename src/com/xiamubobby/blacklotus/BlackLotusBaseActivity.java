@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ViewAnimator;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -24,8 +25,8 @@ public class BlackLotusBaseActivity extends Activity {
 
 	protected RequestQueue queue;
 	protected FragmentManager fragmentManager;
-	protected RelativeLayout baseRoot;
-	protected Blocker blocker;
+	protected BlackLotusFrame baseRootBLFrame;
+	protected RelativeLayout baseRootRela;
 	
 	protected boolean initialed;
 	protected boolean tapped;
@@ -39,26 +40,22 @@ public class BlackLotusBaseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_base);
-		baseRoot = (RelativeLayout) findViewById(R.id.base_root);
-		
+		baseRootBLFrame = (BlackLotusFrame) findViewById(R.id.base_root_animator);
+		baseRootRela = (RelativeLayout) findViewById(R.id.base_root_rela);
 		queue = Volley.newRequestQueue(this);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 	}
 	
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
-		if (hasFocus && !initialed) {
-			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-			initialed = true;
-		}
+		super.onWindowFocusChanged(hasFocus);
 	}
 	
 	public void tap() {
 		tapped = true;
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);		
-		blocker = new Blocker(this, Blocker.TYPE_TAP);
-		blocker.show();
-		tapAnimate();
+		baseRootBLFrame.setSecondLayout(R.layout.blocker_tap);
+		baseRootBLFrame.switchToSecond();
 	}
 	
 	public void tapAnimate() { }
@@ -66,34 +63,9 @@ public class BlackLotusBaseActivity extends Activity {
 	public void untap() {
 		tapped = false;
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-		blocker.dismiss();
-		untapAnimate();
+		baseRootBLFrame.switchToMain();
 	}
 	
 	public void untapAnimate() { }
-	
-	protected class Blocker extends Dialog {
-		//int mType;
-		RelativeLayout blockRoot;
-		public final static int TYPE_TAP = 1;
-		Blocker(Context context, int type) {
-			super(context);
-			//mType = type;
-			init(type);
-		}
-		
-		void init(int type) {
-			setCancelable(false);
-			requestWindowFeature(Window.FEATURE_NO_TITLE);		
-			switch (type) {
-				case TYPE_TAP:
-					setContentView(R.layout.blocker_tap);
-					break;
-				default:
-					break;
-			}
-			//blockRoot = (RelativeLayout) findViewById(R.id.blocker_root);
-		}
-	}
 
 }
