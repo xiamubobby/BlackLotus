@@ -108,21 +108,25 @@ public class BlackLotusFrame extends FrameLayout {
 		super.onDraw(canvas);
 	}
 	
-	public void setFirstInAnimator(int animId) {
+	public void setMainInAnim(int animId) {
 		mainInAnim = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, animId);
 		mainInAnim.setTarget(getChildAt(1));
 	}
-	public void setFirstOutAnimator(int animId) {
+	public void setMainOutAnim(int animId) {
 		mainOutAnim = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, animId);
 		mainOutAnim.setTarget(getChildAt(1));
 	}
-	public void setSecondInAnimation(int animId) {
+	public void setSecondInAnim(int animId) {
 		secondInAnim = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, animId);
-		secondInAnim.setTarget(secondLayout);
+		if (secondLayout != null) {
+			secondInAnim.setTarget(secondLayout);
+		}
 	}
-	public void setSecondOutAnimator(int animId) {
+	public void setSecondOutAnim(int animId) {
 		secondOutAnim = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, animId);
-		secondOutAnim.setTarget(secondLayout);
+		if (secondLayout != null) {
+			secondOutAnim.setTarget(secondLayout);
+		}
 	}
 	
 	public boolean isInMain() {

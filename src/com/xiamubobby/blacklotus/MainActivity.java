@@ -68,7 +68,7 @@ public class MainActivity extends BlackLotusBaseActivity {
 									inspiredScan = imgRes;
 									untap();
 									initialed = true;
-									materializeMain();									
+									materializeMain(true);									
 								}
 	    					}, 3000, 3000, Config.ARGB_8888,
 	    					new Response.ErrorListener(){
@@ -93,12 +93,14 @@ public class MainActivity extends BlackLotusBaseActivity {
 		}
 	}
 	
-	public void getARandom(View view) {
+	public void getTarkirList(View view) {
 		
 	}
 	
-	public void materializeMain() {
-		
+	public void materializeMain(boolean inspired) {
+		if (inspired) {
+			
+		}
 	}
 	
 }

@@ -6,4 +6,10 @@
     
     <color name="bl_ac_bg_color">#ff343434</color>
     
+    <color name="mtg_plain">#ffECF0F1</color>
+    <color name="mtg_island">#ff3498DB</color>
+    <color name="mtg_mountain">#ffE74C3C</color>
+    <color name="mtg_forest">#ff22A162</color>
+    <color name="mtg_swamp">#ff2C3E50</color>
+    
 </resources>

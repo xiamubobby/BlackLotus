@@ -2,13 +2,46 @@
     	xmlns:tools="http://schemas.android.com/tools"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:paddingBottom="@dimen/activity_vertical_margin"
-	    android:paddingLeft="@dimen/activity_horizontal_margin"
-	    android:paddingRight="@dimen/activity_horizontal_margin"
-	    android:paddingTop="@dimen/activity_vertical_margin"
+	    
 	    tools:context="com.xiamubobby.blacklotus.MainActivity"
 	    android:id="@+id/main_root"
-	    android:background="#343434">"
+	    android:background="#343434">
+	    
+    	<ImageView
+    	    android:id="@+id/scheme_plain"
+		    android:layout_height="72dp"
+		    android:layout_width="72dp"
+		    android:src="@color/mtg_plain" />
+    	<ImageView
+    	    android:layout_toRightOf="@id/scheme_plain"
+    	    android:id="@+id/scheme_island"
+		    android:layout_height="72dp"
+		    android:layout_width="72dp"
+		    android:src="@color/mtg_island" />
+    	<ImageView
+    	    android:layout_toRightOf="@id/scheme_island"
+    	    android:id="@+id/scheme_mountain"
+		    android:layout_height="72dp"
+		    android:layout_width="72dp"
+		    android:src="@color/mtg_mountain" />
+    	<ImageView
+    	    android:layout_toRightOf="@id/scheme_mountain"
+    	    android:id="@+id/scheme_forest"
+		    android:layout_height="72dp"
+		    android:layout_width="72dp"
+		    android:src="@color/mtg_forest" />
+    	<ImageView
+    	    android:layout_toRightOf="@id/scheme_forest"
+    	    android:id="@+id/scheme_swamp"
+		    android:layout_height="72dp"
+		    android:layout_width="72dp"
+		    android:src="@color/mtg_swamp" />
+    	<Button
+    	    android:layout_below="@id/scheme_plain"
+    	    android:layout_height="wrap_content"
+		    android:layout_width="wrap_content"
+		    android:onClick="getTarkirList" />
+		    
 	
 		
 	
