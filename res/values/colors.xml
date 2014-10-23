@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="bl_global_bg">#ffeeeeee</color>
     <color name="blocker_overlay">#77000000</color>
     
     <color name="blocker_tap_background">#ff1a83bd</color>
@@ -11,5 +12,9 @@
     <color name="mtg_mountain">#ffE74C3C</color>
     <color name="mtg_forest">#ff22A162</color>
     <color name="mtg_swamp">#ff2C3E50</color>
+    
+    <color name="mirari_normal_color_default">#ff4be2b2</color>
+    <color name="mirari_pressed_color_default">#ff4be2b2</color>
+    <color name="mirari_ink_color_default">#66000000</color>
     
 </resources>

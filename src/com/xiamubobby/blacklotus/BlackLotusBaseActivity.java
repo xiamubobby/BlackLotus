@@ -27,6 +27,7 @@ public class BlackLotusBaseActivity extends Activity {
 	protected FragmentManager fragmentManager;
 	protected BlackLotusFrame baseRootBLFrame;
 	protected RelativeLayout baseRootRela;
+	protected Mirrordin mirrordin;
 	
 	protected boolean initialed;
 	protected boolean tapped;
@@ -39,9 +40,11 @@ public class BlackLotusBaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().setCustomView(R.layout.ab_base);
 		setContentView(R.layout.activity_base);
 		baseRootBLFrame = (BlackLotusFrame) findViewById(R.id.base_root_animator);
 		baseRootRela = (RelativeLayout) findViewById(R.id.base_root_rela);
+		mirrordin = (Mirrordin) findViewById(R.id.mirrordin);
 		queue = Volley.newRequestQueue(this);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 	}
@@ -54,8 +57,8 @@ public class BlackLotusBaseActivity extends Activity {
 	public void tap() {
 		tapped = true;
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);		
-		baseRootBLFrame.setSecondLayout(R.layout.blocker_tap);
-		baseRootBLFrame.switchToSecond();
+		//baseRootBLFrame.setSecondLayout(R.layout.blocker_tap);
+		//baseRootBLFrame.switchToSecond();
 	}
 	
 	public void tapAnimate() { }
@@ -63,7 +66,7 @@ public class BlackLotusBaseActivity extends Activity {
 	public void untap() {
 		tapped = false;
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-		baseRootBLFrame.switchToMain();
+		//baseRootBLFrame.switchToMain();
 	}
 	
 	public void untapAnimate() { }

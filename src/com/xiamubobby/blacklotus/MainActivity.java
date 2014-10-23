@@ -11,6 +11,7 @@ import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.os.Bundle;
@@ -94,13 +95,20 @@ public class MainActivity extends BlackLotusBaseActivity {
 	}
 	
 	public void getTarkirList(View view) {
-		
+		mirrordin.enchant(new BaseMirari(this));
 	}
 	
 	public void materializeMain(boolean inspired) {
 		if (inspired) {
 			
 		}
+	}
+	
+	class MainDefaultMirari extends View {
+
+		public MainDefaultMirari(Context context) {
+			super(context);
+		}		
 	}
 	
 }

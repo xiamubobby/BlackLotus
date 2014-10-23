@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.xiamubobby.blacklotus.BlackLotusFrame xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lotus="http://schemas.android.com/apk.res/com.xiamubobby.BlackLotus"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/base_root_animator"
     android:layout_width="match_parent"
@@ -15,8 +16,17 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:id="@+id/base_root_rela" >
-    
-
 	</RelativeLayout>
+	
+    <com.xiamubobby.blacklotus.Mirrordin
+        android:id="@+id/mirrordin"
+        android:layout_width="@dimen/mirari_size"
+        android:layout_height="@dimen/mirari_size"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/mirari_margin_bot"
+        android:layout_marginEnd="@dimen/mirari_margin_end"
+        lotus:normalColor="@color/mirari_normal_color_default"
+        lotus:pressColor="@color/mirari_pressed_color_default"
+        lotus:inkDropColor="@color/mirari_ink_color_default" />
     
 </com.xiamubobby.blacklotus.BlackLotusFrame>

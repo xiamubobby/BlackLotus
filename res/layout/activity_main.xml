@@ -4,8 +4,7 @@
 	    android:layout_height="match_parent"
 	    
 	    tools:context="com.xiamubobby.blacklotus.MainActivity"
-	    android:id="@+id/main_root"
-	    android:background="#343434">
+	    android:id="@+id/main_root" >
 	    
     	<ImageView
     	    android:id="@+id/scheme_plain"
